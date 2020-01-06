@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 mongoose.set("debug", true);
 mongoose.Promise = Promise;
 
-const uri = "mongodb+srv://Temitope:drowssap@warblercluster-jsojs.mongodb.net/test?retryWrites=true&w=majority"
+// const uri = "mongodb+srv://Temitope:drowssap@warblercluster-jsojs.mongodb.net/test?retryWrites=true&w=majority"
 
-mongoose.connect(uri);
+mongoose.connect(process.env.MONGOLAB_URI);
 
 
 
