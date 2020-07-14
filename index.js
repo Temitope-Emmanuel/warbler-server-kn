@@ -15,6 +15,10 @@ const PORT = process.env.PORT || 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/",(req,res) => {
+  return res.redirect(301,"/api")
+})
+
 app.get("/api",(req,res) => {
   console.log("listening")
   return res.status(200).json({
