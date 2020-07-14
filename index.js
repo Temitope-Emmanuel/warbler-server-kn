@@ -15,9 +15,11 @@ const PORT = process.env.PORT || 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/",(req,res) => {
+app.get("/api",(req,res) => {
   console.log("listening")
-  res.send("listening carefully")
+  return res.status(200).json({
+    messages:"listening loud and clear"
+  })
 })
 
 app.use("/api/auth", authRoutes);
@@ -29,7 +31,7 @@ app.use(
   messagesRoutes
 );
 
-app.get("/api/messages", loginRequired, async function(req, res, next) {
+app.get("/api/messages", async function(req, res, next) {
   try {
     let messages = await db.Message.find()
       .sort({ createdAt: "desc" })
