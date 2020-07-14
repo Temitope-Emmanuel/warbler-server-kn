@@ -15,6 +15,11 @@ const PORT = process.env.PORT || 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/",(req,res) => {
+  console.log("listening")
+  res.send("listening carefully")
+})
+
 app.use("/api/auth", authRoutes);
 
 app.use(

@@ -2,7 +2,15 @@ const mongoose = require("mongoose");
 mongoose.set("debug", true);
 mongoose.Promise = Promise;
 
-mongoose.connect(process.env.MONGOLAB_URI);
+const PORT = process.env.MONGOLAB_URI || "mongodb://localhost/yelpcampv9"
+
+// console.log(PORT)
+
+mongoose.connect(PORT,{
+    keepAlive:true,
+    useUnifiedTopology:true,
+    useNewUrlParser:true
+});
 
 
 
