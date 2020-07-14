@@ -4,8 +4,6 @@ mongoose.Promise = Promise;
 
 const PORT = process.env.MONGOLAB_URI || "mongodb://localhost/yelpcampv9"
 
-console.log(PORT)
-
 const connectDB = async () => {
     try {
     const connection = await mongoose.connect(
@@ -14,11 +12,9 @@ const connectDB = async () => {
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: true,
-    useUnifiedTopology: false
+    useUnifiedTopology: true
     }
     )
-    console.log(PORT)
-    console.log(`MongoDB connected: ${connection.connection.host}`);
     } catch (error) {
     console.log(`MongoDB error when connecting: ${error}`);
     }
