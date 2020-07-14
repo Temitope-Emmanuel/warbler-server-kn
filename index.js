@@ -31,7 +31,7 @@ app.use(
   messagesRoutes
 );
 
-app.get("/api/messages", async function(req, res, next) {
+app.get("/api/messages",loginRequired, async function(req, res, next) {
   try {
     let messages = await db.Message.find()
       .sort({ createdAt: "desc" })
